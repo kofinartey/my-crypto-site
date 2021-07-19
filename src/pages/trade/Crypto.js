@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { CryptoContext } from "./CryptoContext";
 import Loader from "../../components/loader/Loader";
 import styles from "./CryptoStyles";
@@ -9,8 +9,7 @@ import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 
 function Crypto() {
   const classes = styles();
-  const [select, setSelect] = useState(10);
-  const [loading, setLoading] = useState(false);
+
   const {
     coinData,
     search,
@@ -18,10 +17,10 @@ function Crypto() {
     searchWord,
     setSearchWord,
     setNumCoins,
+    loading,
   } = useContext(CryptoContext);
 
   const changeSelect = (e) => {
-    setSelect(e.target.value);
     setNumCoins(e.target.value);
   };
 
@@ -30,22 +29,19 @@ function Crypto() {
     setSearching(true);
   };
 
-  //call search anytime input changes
-  useEffect(() => {
-    search(searchWord);
-  }, [searchWord]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     search(searchWord);
   };
 
+  //call search anytime input changes
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 300);
-  }, [select]);
+    search(searchWord);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchWord]);
+
+  //
+
   return (
     <>
       <div className={classes.filter__section}>

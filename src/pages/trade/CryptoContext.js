@@ -8,24 +8,29 @@ export function CryptoProvider(props) {
   const [searching, setSearching] = useState(false);
   const [searchWord, setSearchWord] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const API_URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${numCoins}&page=1&sparkline=false`;
 
   //fetch data from API
   useEffect(() => {
     const getdata = async () => {
+      setLoading(true);
       const response = await fetch(API_URL);
       const data = await response.json();
       setTradeData(data);
+      setLoading(false);
     };
-
+    console.log(tradeData);
     getdata();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [numCoins, API_URL]);
 
   //search through data with searchWord
   const search = (searchWord) => {
+    let word = searchWord.toLowerCase();
     let newList = tradeData.filter(
-      (coin) => coin.name.includes(searchWord) || coin.id.includes(searchWord)
+      (coin) => coin.name.toLowerCase().includes(word) || coin.id.includes(word)
     );
     setSearchResults(newList);
   };
@@ -45,6 +50,8 @@ export function CryptoProvider(props) {
     setSearching,
     setTradeData,
     setNumCoins,
+    loading,
+    setLoading,
   };
   return (
     <div>
