@@ -9,7 +9,7 @@ export default function NewsCard({ data }) {
       <img src={data.img} alt="" className={classes.newsImg} />
       <h4 className={classes.title}>{data.title}</h4>
       <p className={classes.story}>{data.story}</p>
-      <Link exact to="#" className={classes.more}>
+      <Link to="#" className={classes.more}>
         Read More...
       </Link>
     </div>
