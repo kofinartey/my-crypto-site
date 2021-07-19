@@ -33,7 +33,7 @@ function Crypto() {
   //call search anytime input changes
   useEffect(() => {
     search(searchWord);
-  }, [searchWord, search]);
+  }, [searchWord]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
