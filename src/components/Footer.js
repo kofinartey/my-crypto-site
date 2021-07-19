@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className={classes.Footer}>
       <div className={classes.footer__wrapper}>
         <div className={`${classes.group} ${classes.one}`}>
-          <Link exact to="/">
+          <Link to="/">
             <img src={logo} alt="company logo" />
           </Link>
           <p>Commish Investment Ltd</p>
@@ -21,32 +21,16 @@ export default function Footer() {
 
         <div className={classes.two}>
           <div className={`${classes.group}`}>
-            <Link exact to="/">
-              Home
-            </Link>
-            <Link exact to="/trade">
-              Trade
-            </Link>
-            <Link exact to="/learn">
-              Learn
-            </Link>
-            <Link exact to="/news">
-              News
-            </Link>
+            <Link to="/">Home</Link>
+            <Link to="/trade">Trade</Link>
+            <Link to="/learn">Learn</Link>
+            <Link to="/news">News</Link>
           </div>
           <div className={`${classes.group}`}>
-            <Link exact to="#">
-              About
-            </Link>
-            <Link exact to="#">
-              Legal
-            </Link>
-            <Link exact to="#">
-              Social
-            </Link>
-            <Link exact to="#">
-              Terms and Conditions
-            </Link>
+            <Link to="#">About</Link>
+            <Link to="#">Legal</Link>
+            <Link to="#">Social</Link>
+            <Link to="#">Terms and Conditions</Link>
           </div>
         </div>
 

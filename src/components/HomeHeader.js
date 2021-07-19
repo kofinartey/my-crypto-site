@@ -12,7 +12,7 @@ function HomeHeader() {
             SOME REALY COOL TEXT TO MAKE YOU WANT TO WORK WITH US
           </h1>
 
-          <Link exact to="/market" className={classes.visit}>
+          <Link to="/market" className={classes.visit}>
             VISIT MARKET
           </Link>
         </div>
